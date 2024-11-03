@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel Editor</title>
+    
+    <style>
+        /* Basic reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+    
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+    
+        .navbar-title {
+            font-size: 20px;
+            margin: 0;
+        }
+    
+        .navbar-options button:hover {
+            background-color: #777;
+        }
+
+        .dg.ac {
+            margin-top:45px; /* Adjust this to match your navbar height */
+        }
+
+    /* control hint */
+    .control-hint {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    </style>
+    
+  <script type="module" crossorigin src="/assets/index-BWKrk-Po.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="navbar-title">Voxel Editor</h1>
+        </nav>
+    </header>
+    <main>
+        <canvas id="canvas"></canvas>
+        <div class="control-hint">
+            <strong>Controls:</strong><br>
+            <!-- click mouse  -->
+            - Right click to place voxel<br>
+            - Left click to remove voxel<br>
+            - Press <strong>E</strong> to export<br>
+            - Press <strong>P</strong> to pick color<br>
+            - Press <strong>Ctrl + Z</strong> to undo<br>
+            - Press <strong>Ctrl + Y</strong> to redo<br>
+            - Press <strong>S</strong> to switch modes
+        </div>
+    </main>
+</body>
+</html>
