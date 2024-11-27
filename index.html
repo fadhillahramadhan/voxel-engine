@@ -154,7 +154,7 @@
         const presets = document.querySelectorAll('.preset');
         presets.forEach(preset => {
             preset.addEventListener('click', () => {
-                fetch(`./public/${preset.textContent.toLowerCase()}.json`)
+                fetch(`${preset.textContent.toLowerCase()}.json`)
                     .then(response => response.json())
                     .then(data => {
                         localStorage.setItem('voxels', JSON.stringify(data));
