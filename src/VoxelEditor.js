@@ -84,7 +84,7 @@ export default class VoxelEditor {
 	}
 
 	addGrid() {
-		this.gridHelper = new THREE.GridHelper(100, 100);
+		this.gridHelper = new THREE.GridHelper(50, 50);
 		this.gridHelper.position.y -= 0.5;
 		this.gridHelper.position.x -= 0.5;
 		this.gridHelper.position.z -= 0.5;
@@ -92,7 +92,7 @@ export default class VoxelEditor {
 	}
 
 	addGroundPlane() {
-		const planeGeometry = new THREE.PlaneGeometry(100, 100);
+		const planeGeometry = new THREE.PlaneGeometry(50, 50);
 		const planeMaterial = new THREE.MeshBasicMaterial({ visible: false });
 		this.groundPlane = new THREE.Mesh(planeGeometry, planeMaterial);
 		this.groundPlane.rotation.x = -Math.PI / 2;
@@ -405,6 +405,7 @@ export default class VoxelEditor {
 	}
 
 	exportToOBJ() {
+		console.log('Test');
 		const exporter = new GLTFExporter();
 		exporter.parse(
 			this.scene,

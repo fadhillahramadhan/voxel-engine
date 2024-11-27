@@ -1,0 +1,4032 @@
+[
+    {
+        "position": [
+            -3,
+            0,
+            4
+        ],
+        "color": "#ff9300",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            1,
+            4
+        ],
+        "color": "#ff9300",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            0,
+            4
+        ],
+        "color": "#ff9300",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            1,
+            4
+        ],
+        "color": "#ff9300",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            2,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            2,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            3,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            3,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            3,
+            6
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            3,
+            6
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            3,
+            2
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            3,
+            2
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            3,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            3,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            3,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            3,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            3,
+            6
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            3,
+            6
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            3,
+            2
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            3,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            3,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            3,
+            2
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            3,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            3,
+            6
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            3,
+            6
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            3,
+            4
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            3,
+            2
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            3,
+            3
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            3,
+            2
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            3,
+            4
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            3,
+            4
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            4,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            4,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            4,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            4,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            4,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            4,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            5,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            5,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            5,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            5,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            5,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            5,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            5,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            5,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            5,
+            5
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            4,
+            5
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            4,
+            5
+        ],
+        "color": "#1aaa1a",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            6,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            3
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            5
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            7,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            7,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            7,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            7,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            7,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            7,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            5
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            7,
+            5
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            8,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            8,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            8,
+            5
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            8,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            8,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            8,
+            5
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            8,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            8,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            8,
+            3
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            8,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            8,
+            5
+        ],
+        "color": "#0c0c0b",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            8,
+            5
+        ],
+        "color": "#0c0c0b",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            7,
+            5
+        ],
+        "color": "#e8a576",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            7,
+            5
+        ],
+        "color": "#e8a576",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            9,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            8,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            7,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            8,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            7,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            8,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            7,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            9,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            8,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            7,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            8,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            8,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            8,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            7,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            7,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            7,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            9,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            9,
+            4
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            9,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            9,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            7,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            8,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            6,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            5,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            6,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            5,
+            5
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            6
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            8,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            8,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            8,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            7,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            8,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            7,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            5,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            5,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            6,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            6,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            5,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            6,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            5,
+            3
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            6,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            6,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            6,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            5,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            6,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            4,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            5,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            7,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            7,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            6,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            7,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            7,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            3,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            3,
+            4,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            7,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            6,
+            0
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            5,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            4,
+            4,
+            1
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            4,
+            5,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            3,
+            6,
+            2
+        ],
+        "color": "#e86734",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            6,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            3,
+            5,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            4,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            6,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            4,
+            4
+        ],
+        "color": "#20de20",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            5,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -6,
+            3,
+            4
+        ],
+        "color": "#f7f7c7",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            3,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            4,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            0,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            1,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            2,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            5,
+            4
+        ],
+        "color": "#935732",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            7,
+            4
+        ],
+        "color": "#be8157",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -7,
+            6,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -8,
+            6,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -8,
+            5,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            5,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            4,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            6,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            7,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            4,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            5,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            6,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            7,
+            4
+        ],
+        "color": "#636161",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -11,
+            6,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -11,
+            7,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            8,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            9,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -11,
+            5,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -11,
+            4,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -10,
+            3,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -9,
+            2,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            7
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            7
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            7
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            7
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            7
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            10,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            10,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            10,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            10,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            11,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            11,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            11,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            10,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            11,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            10,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            11,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            10,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            12,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            9,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            9,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            9,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            10,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            11,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            11,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            10,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            11,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            12,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            11,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            13,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            13,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            12,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            13,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            10,
+            6
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            11,
+            6
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            9,
+            5
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            9,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            10,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            9,
+            3
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            10,
+            2
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            11,
+            2
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            11,
+            5
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            11,
+            3
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            12,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            12,
+            6
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            13,
+            5
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            13,
+            4
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            13,
+            3
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            12,
+            2
+        ],
+        "color": "#aaaaaa",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            12,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            1
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            12,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            1
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            2
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            3
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            5
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            12,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            12,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            12,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            12,
+            6
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -3,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -2,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            0,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -1,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            13,
+            2
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            13,
+            3
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            13,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            13,
+            5
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            13,
+            6
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            14,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            14,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -4,
+            14,
+            4
+        ],
+        "color": "#bbbbbb",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            14,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            -5,
+            15,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            2,
+            15,
+            4
+        ],
+        "color": "#777777",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    },
+    {
+        "position": [
+            1,
+            11,
+            7
+        ],
+        "color": "#ffffff",
+        "opacity": 1,
+        "material": "MeshPhongMaterial"
+    }
+]

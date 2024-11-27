@@ -41,19 +41,70 @@
             margin-top:45px; /* Adjust this to match your navbar height */
         }
 
-    /* control hint */
-    .control-hint {
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-    }
+        /* Bar Presets */
+        .presets {
+            position: fixed;
+            top: 50px; /* Adjust to create space above the control hints */
+            left: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 20;
+            transition: all 0.3s;
+        }
+
+        .presets ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .presets li {
+            margin-bottom: 5px;
+        }
+
+        .presets button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .control-hint {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .minimize-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Hide elements */
+        .hidden {
+            display: none;
+        }
+
+    
+
     </style>
     
-  <script type="module" crossorigin src="/assets/index-BWKrk-Po.js"></script>
+  <script type="module" crossorigin src="/assets/index-1whisUma.js"></script>
 </head>
 <body>
     <header>
@@ -63,9 +114,21 @@
     </header>
     <main>
         <canvas id="canvas"></canvas>
+        <div class="presets">
+            <strong>Presets:</strong>
+            <ul>
+                <li>
+                    <button class="preset">Warrior</button>
+                </li>
+                <li>
+                    <button class="preset">Chicken</button>
+                </li>
+            </ul>
+        </div>
+
         <div class="control-hint">
+            <button class="minimize-btn" onclick="toggleControlHint()">X</button>
             <strong>Controls:</strong><br>
-            <!-- click mouse  -->
             - Right click to place voxel<br>
             - Left click to remove voxel<br>
             - Press <strong>E</strong> to export<br>
@@ -75,5 +138,30 @@
             - Press <strong>S</strong> to switch modes
         </div>
     </main>
+    <script>
+        // Function to toggle the visibility of presets
+        function togglePresets() {
+            const presets = document.querySelector('.presets');
+            presets.classList.toggle('hidden');
+        }
+
+        // Function to toggle the visibility of control hint
+        function toggleControlHint() {
+            const controlHint = document.querySelector('.control-hint');
+            controlHint.classList.toggle('hidden');
+        }
+
+        const presets = document.querySelectorAll('.preset');
+        presets.forEach(preset => {
+            preset.addEventListener('click', () => {
+                fetch(`./public/${preset.textContent.toLowerCase()}.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        localStorage.setItem('voxels', JSON.stringify(data));
+                        location.reload();
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
