@@ -2,11 +2,15 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter';
 
+// rgbe loader
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+
 import Voxel from './Voxel.js';
 import VoxelGuiControl from './gui/VoxelGuiControl.js';
 import LightGuiControl from './gui/LightGuiControl.js';
 import ModeGuiControl from './gui/ModeGuiControl.js';
 import * as dat from 'dat.gui';
+import { texture } from 'three/tsl';
 
 let gui = new dat.GUI();
 
@@ -36,6 +40,18 @@ export default class VoxelEditor {
 
 		this.loadVoxels();
 		this.animate();
+	}
+
+	addHDRIBackground() {
+		// Load HDRi image
+		const loader = new RGBELoader();
+		loader.setDataType(THREE.UnsignedByteType); // Use the correct data type for HDR images
+		loader.load('christmas_photo_studio_04_2k', (texture) => {
+			// Set the HDR texture as the scene background
+			texture.mapping = THREE.EquirectangularReflectionMapping;
+			this.scene.background = texture;
+			this.scene.environment = texture; // Optional: for reflective surfaces and environment lighting
+		});
 	}
 
 	initScene() {
@@ -164,6 +180,8 @@ export default class VoxelEditor {
 			this.mode === 'default' &&
 			this.ghostVoxel.visible
 		) {
+			const startTime = performance.now(); // Mulai pengukuran waktu
+
 			// Default mode: add single voxel
 			const newVoxel = new Voxel(
 				this.ghostVoxel.position.clone(),
@@ -179,7 +197,13 @@ export default class VoxelEditor {
 				voxel: newVoxel.mesh,
 			});
 			this.redoStack = []; // Clear redo stack on new action
+
+			const endTime = performance.now(); // Selesai pengukuran waktu
+			console.log(
+				'Waktu eksekusi Normal Mode: ' + (endTime - startTime) + ' ms'
+			);
 		} else if (event.button === 0 && this.mode === 'box') {
+			const startTime = performance.now(); // Mulai pengukuran waktu
 			// Box mode: select points for box creation
 			if (!this.startPoint) {
 				this.startPoint = this.ghostVoxel.position.clone();
@@ -189,6 +213,12 @@ export default class VoxelEditor {
 				this.startPoint = null;
 				this.endPoint = null;
 			}
+
+			const endTime = performance.now(); // Selesai pengukuran waktu
+
+			console.log(
+				'Waktu eksekusi Box Mode: ' + (endTime - startTime) + ' ms'
+			);
 		}
 	}
 
@@ -354,20 +384,40 @@ export default class VoxelEditor {
 	}
 
 	saveVoxels() {
-		const voxelData = this.voxels.map((voxel) => ({
-			position: voxel.position.toArray(),
-			color: '#' + voxel.material.color.getHexString(),
-			roughness: voxel.material.roughness,
-			metalness: voxel.material.metalness,
-			opacity: voxel.material.opacity,
-			material: voxel.material.type,
-		}));
+		const voxelData = this.voxels.map((voxel) => {
+			let color = voxel.material.color
+				? voxel.material.color.getHex()
+				: 0x00ff00;
+
+			let data = {
+				position: voxel.position.toArray(),
+				color: color,
+				roughness: voxel.material.roughness,
+				metalness: voxel.material.metalness,
+				opacity: voxel.material.opacity,
+				material: voxel.material.type,
+				texture: voxel.material.map,
+				textureSrc: voxel.material.map
+					? voxel.material.map.image.src
+					: null,
+			};
+			return data;
+		});
+
 		localStorage.setItem('voxels', JSON.stringify(voxelData));
 	}
 
 	loadVoxels() {
 		const voxelData = JSON.parse(localStorage.getItem('voxels')) || [];
 		voxelData.forEach((data) => {
+			// change texture to texture map
+			if (data.texture) {
+				const loader = new THREE.TextureLoader();
+				data.texture = loader.load(data.textureSrc);
+			} else {
+				data.texture = null;
+			}
+
 			const position = new THREE.Vector3(...data.position);
 			const voxel = new Voxel(position, {
 				color: data.color,
@@ -376,6 +426,7 @@ export default class VoxelEditor {
 				opacity: data.opacity,
 				transparent: data.opacity < 1,
 				material: data.material,
+				texture: data.texture,
 			});
 			this.scene.add(voxel.mesh);
 			this.voxels.push(voxel.mesh);
@@ -405,7 +456,6 @@ export default class VoxelEditor {
 	}
 
 	exportToOBJ() {
-		console.log('Test');
 		const exporter = new GLTFExporter();
 		exporter.parse(
 			this.scene,

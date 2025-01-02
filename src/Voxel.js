@@ -24,8 +24,14 @@ export default class Voxel {
 		}
 
 		if (!this.material) {
-			console.error('Invalid material type');
 			return;
+		}
+		// ture loaded: _Texture {isTexture: true, uuid: '059cc6e9-252f-40e7-9ff0-d6010dc06ae1', name: '', source: Source, mipmaps: Array(0), …} is already like that
+		// if there is a texture, apply it to the material
+		if (properties.texture) {
+			this.material.map = properties.texture;
+			// remove color property if texture is applied
+			delete this.material.color;
 		}
 
 		this.#createMesh(position);
