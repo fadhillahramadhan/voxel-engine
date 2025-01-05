@@ -18,17 +18,6 @@
     </header>
     <main>
         <canvas id="canvas"></canvas>
-        <!-- <div class="presets">
-            <strong>Presets:</strong>
-            <ul>
-                <li>
-                    <button class="preset">Warrior</button>
-                </li>
-                <li>
-                    <button class="preset">Chicken</button>
-                </li>
-            </ul>
-        </div> -->
 
         <div class="control-hint">
             <button class="minimize-btn" onclick="toggleControlHint()">X</button>
@@ -68,24 +57,21 @@
             // also save it to local storage
             localStorage.setItem('voxelsCode', code);
             localStorage.setItem('voxelsPull', url);
-           
+      
             
-            
-            fetch('/server/custom_models/' + code + '.json', {
+            fetch('https://voxelize.online/api/modeling/get?unique_code=' + code, {
                 method: 'GET'
             })
             .then(response => {
                 return response.json();
             })
             .then(data => {
-                localStorage.setItem('voxels', JSON.stringify(data));
-                location.reload();
+             localStorage.setItem('voxels', JSON.stringify(data.data));
+        
             })
-            .catch(error => {
-            });
-       
         }
-
+        
+   
 
     </script>
 </body>
