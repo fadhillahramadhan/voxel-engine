@@ -53,7 +53,7 @@
             const url = urlParams.get('ref');
             
             // remove it from url
-            window.history.replaceState({}, document.title, "/" + "VoxelEditor");
+            window.history.replaceState({}, document.title, "/");
             // also save it to local storage
             localStorage.setItem('voxelsCode', code);
             localStorage.setItem('voxelsPull', url);
