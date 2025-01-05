@@ -66,8 +66,8 @@
                 return response.json();
             })
             .then(data => {
-             localStorage.setItem('voxels', JSON.stringify(data.data));
-        
+                localStorage.setItem('voxels', JSON.stringify(data.data));
+                window.location.reload();
             })
         }
         
