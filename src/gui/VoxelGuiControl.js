@@ -11,7 +11,6 @@ export default class VoxelGuiControl {
 			opacity: 1,
 			transparent: false,
 			material: 'Standard',
-			texture: null, // Holds the texture object
 		};
 
 		// Initialize the dat.GUI instance
@@ -19,6 +18,7 @@ export default class VoxelGuiControl {
 
 		// Create a folder for material properties
 		const materialTypes = ['Standard', 'Lambert', 'Phong'];
+
 		const materialFolder = this.gui.addFolder('Material');
 
 		// Add material type selection
@@ -27,47 +27,15 @@ export default class VoxelGuiControl {
 			.name('Material Type')
 			.onChange((value) => {
 				this.params.material = value;
-				this.voxelEditor.updateMaterial(this.params);
 			});
 
 		// Add other material properties
-		materialFolder
-			.addColor(this.params, 'color')
-			.name('Color')
-			.onChange((value) => {
-				this.params.color = value;
-				this.voxelEditor.updateMaterial(this.params);
-			});
-		materialFolder
-			.add(this.params, 'roughness', 0, 1)
-			.name('Roughness')
-			.onChange((value) => {
-				this.params.roughness = value;
-				this.voxelEditor.updateMaterial(this.params);
-			});
-		materialFolder
-			.add(this.params, 'metalness', 0, 1)
-			.name('Metalness')
-			.onChange((value) => {
-				this.params.metalness = value;
-				this.voxelEditor.updateMaterial(this.params);
-			});
-		materialFolder
-			.add(this.params, 'opacity', 0, 1)
-			.name('Opacity')
-			.onChange((value) => {
-				this.params.opacity = value;
-				this.voxelEditor.updateMaterial(this.params);
-			});
-		materialFolder
-			.add(this.params, 'transparent')
-			.name('Transparent')
-			.onChange((value) => {
-				this.params.transparent = value;
-				this.voxelEditor.updateMaterial(this.params);
-			});
+		materialFolder.addColor(this.params, 'color').name('Color');
+		materialFolder.add(this.params, 'roughness', 0, 1).name('Roughness');
+		materialFolder.add(this.params, 'metalness', 0, 1).name('Metalness');
+		materialFolder.add(this.params, 'opacity', 0, 1).name('Opacity');
+		materialFolder.add(this.params, 'transparent').name('Transparent');
 
-		// Add a custom file input for texture selection
 		const textureInput = document.createElement('input');
 		textureInput.type = 'file';
 		textureInput.accept = 'image/*';
@@ -119,11 +87,6 @@ export default class VoxelGuiControl {
 
 	setColor(newColor) {
 		this.params.color = newColor;
-		this.gui.updateDisplay();
-	}
-
-	setTexture(imagePath) {
-		this.applyTexture(imagePath);
 		this.gui.updateDisplay();
 	}
 }
