@@ -1,3 +1,7 @@
+/* import needed font */
+
+@import url('https://fonts.googleapis.com/css2?family=Haas+Grot+Text+R+Web:wght@500&display=swap');
+
 body {
   margin: 0;
   overflow: hidden;
@@ -16,13 +20,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
+  background-color: rgba(36, 0, 36, 1);
   color: #fff;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 10;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 10px;
 }
 
 .navbar-title {
@@ -97,4 +108,35 @@ body {
 /* Hide elements */
 .hidden {
   display: none;
+}
+
+
+/* CSS */
+.button-action {
+  background-color: rgba(255, 0, 127, 1);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 3px 0px !important;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-action:hover,
+.button-action:focus {
+  background-color: #F082AC;
 }

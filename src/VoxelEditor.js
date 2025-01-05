@@ -65,7 +65,11 @@ export default class VoxelEditor {
 
 		// Select the canvas element by ID and pass it to WebGLRenderer
 		const canvas = document.getElementById('canvas');
-		this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+		this.renderer = new THREE.WebGLRenderer({
+			canvas,
+			antialias: true,
+			preserveDrawingBuffer: true,
+		});
 		this.renderer.setClearColor(0x87ceeb, 1);
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -170,6 +174,10 @@ export default class VoxelEditor {
 			if (event.key === 's') {
 				this.ModeGuiControl.params.mode = 'default';
 				this.updateMode();
+			}
+			// screenshoot
+			if (event.key === 'i') {
+				this.exportImage();
 			}
 		});
 	}
@@ -470,5 +478,16 @@ export default class VoxelEditor {
 			},
 			{ binary: false }
 		);
+	}
+
+	// export image
+	exportImage() {
+		var strMime = 'image/jpeg';
+		let imgData = this.renderer.domElement.toDataURL(strMime);
+
+		var link = document.createElement('a');
+		link.download = 'image.jpg';
+		link.href = imgData;
+		link.click();
 	}
 }
