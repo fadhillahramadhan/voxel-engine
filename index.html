@@ -68,8 +68,9 @@
             // also save it to local storage
             localStorage.setItem('voxelsCode', code);
             localStorage.setItem('voxelsPull', url);
+           
             
-            // http://localhost:8000/custom_models/c0e4d2708be78b5df017da2aba7c45cd.json
+            
             fetch('/server/custom_models/' + code + '.json', {
                 method: 'GET'
             })
