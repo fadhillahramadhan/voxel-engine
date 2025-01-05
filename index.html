@@ -18,7 +18,7 @@
     </header>
     <main>
         <canvas id="canvas"></canvas>
-        <div class="presets">
+        <!-- <div class="presets">
             <strong>Presets:</strong>
             <ul>
                 <li>
@@ -28,7 +28,7 @@
                     <button class="preset">Chicken</button>
                 </li>
             </ul>
-        </div>
+        </div> -->
 
         <div class="control-hint">
             <button class="minimize-btn" onclick="toggleControlHint()">X</button>
@@ -56,17 +56,47 @@
             controlHint.classList.toggle('hidden');
         }
 
-        const presets = document.querySelectorAll('.preset');
-        presets.forEach(preset => {
-            preset.addEventListener('click', () => {
-                fetch(`${preset.textContent.toLowerCase()}.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        localStorage.setItem('voxels', JSON.stringify(data));
-                        location.reload();
-                    });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        // remove it and save it to local storage
+        if (urlParams.has('code')) {
+            const code = urlParams.get('code');
+            const url = urlParams.get('pull_url');
+            // remove it
+            window.history.replaceState({}, document.title, window.location.pathname);
+
+            // also save it to local storage
+            localStorage.setItem('voxelsCode', code);
+            localStorage.setItem('voxelsPull', url);
+            
+            // check if the code is in the public folder if not create it
+            fetch(`${url}`, {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Parse JSON if the response is successful
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            })
+            .then(data => {
+                console.log('Fetched Data:', data);
+                // Example of processing the data
+                data.forEach(item => {
+                    console.log('Position:', item.position);
+                    console.log('Color:', item.color);
+                    console.log('Opacity:', item.opacity);
+                    console.log('Material:', item.material);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON:', error);
             });
-        });
+       
+        }
+
+
     </script>
 </body>
 </html>
