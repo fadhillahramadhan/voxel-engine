@@ -14,11 +14,11 @@
         <nav class="navbar">
             <div class="container">
                  <h1 class="navbar-title">Voxelize Engine</h1>
-                 <div>
+                 <div style="display: flex; gap: 10px">
                      <button class="reset-btn button-action" onclick="reset()">Reset All</button>
                      <button class="load-btn button-action" onclick="openAsJson()">Load Json</button>
                      <button class="save-btn button-action" onclick="saveAsJson()">Save As Json</button>
-                     <button class="save-btn button-action" onclick="save()">Save To Market</button>
+                     <button id="save-market" class="save-btn button-action" onclick="save()" style="display: none;">Save To Market</button>
                  </div>
             </div>
         </nav>

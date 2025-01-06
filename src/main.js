@@ -1,4 +1,3 @@
-// main.js
 import VoxelEditor from './VoxelEditor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,55 +5,78 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const ENVIROMENT = import.meta.env.ENVIRONMENT;
+const ENVIRONMENT = import.meta.env.ENVIRONMENT;
 
-// Function to toggle the visibility of control hint
-function toggleControlHint() {
-	const controlHint = document.querySelector('.control-hint');
-	controlHint.classList.toggle('hidden');
-}
+// Utility functions
+const toggleElementVisibility = (selector, isVisible) => {
+	const element = document.querySelector(selector);
+	element.style.display = isVisible ? 'block' : 'none';
+};
 
-const urlParams = new URLSearchParams(window.location.search);
-// remove it and save it to local storage
-if (urlParams.has('code')) {
-	const code = urlParams.get('code');
+const fetchJSON = async (url, options = {}) => {
+	const response = await fetch(url, options);
+	return response.json();
+};
 
-	window.history.replaceState({}, document.title, '/');
-
-	localStorage.setItem('code', code);
-
-	getVoxels(code);
-}
-
-function getVoxels(code) {
-	if (ENVIROMENT !== 'local') {
-		fetch(`${API_BASE_URL}/modeling/get?unique_code=${code}`, {
-			method: 'GET',
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				localStorage.setItem('voxels', JSON.stringify(data.data));
-				window.location.reload();
-			});
-	} else {
-		fetch('/server/custom_models/' + code + '.json', {
-			method: 'GET',
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				localStorage.setItem('voxels', JSON.stringify(data));
-				location.reload();
-			});
+// Manage URL parameters and local storage
+const handleUrlParams = () => {
+	const urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.has('code')) {
+		localStorage.clear();
+		const code = urlParams.get('code');
+		const action = urlParams.get('a');
+		localStorage.setItem('c', action);
+		localStorage.setItem('code', code);
+		window.history.replaceState({}, document.title, '/');
+		loadVoxels(code);
 	}
-}
+};
 
-function reset() {
-	// localStorage.removeItem('voxels');
-	// location.reload();
+const loadVoxels = async (code) => {
+	const url =
+		ENVIRONMENT !== 'local'
+			? `${API_BASE_URL}/modeling/get?unique_code=${code}`
+			: `/server/custom_models/${code}.json`;
+
+	const data = await fetchJSON(url);
+	localStorage.setItem('voxels', JSON.stringify(data.data || data));
+	location.reload();
+};
+
+// Save model data
+const saveModel = async () => {
+	const voxels = JSON.parse(localStorage.getItem('voxels'));
+	const code = localStorage.getItem('code');
+	const canvas = document.querySelector('canvas');
+	const img = canvas.toDataURL('image/png');
+
+	const payload = {
+		unique_code: code,
+		json: voxels,
+		image: img,
+	};
+
+	const url =
+		ENVIRONMENT !== 'local'
+			? `${API_BASE_URL}/modeling/update`
+			: '/server/api/modeling/update';
+
+	await fetchJSON(url, {
+		method: ENVIRONMENT !== 'local' ? 'POST' : 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(payload),
+	});
+
+	Swal.fire({
+		title: 'Success',
+		text: 'Model saved successfully',
+		icon: 'success',
+		confirmButtonText: 'Ok',
+	});
+};
+
+// Reset voxels
+const resetVoxels = () => {
 	Swal.fire({
 		title: 'Are you sure you want to reset?',
 		text: 'You will lose all your work!',
@@ -68,89 +90,27 @@ function reset() {
 			location.reload();
 		}
 	});
-}
+};
 
-window.reset = reset;
-
-function save() {
+// Save voxels as JSON file
+const saveAsJson = () => {
 	const voxels = JSON.parse(localStorage.getItem('voxels'));
 	const code = localStorage.getItem('code');
-
-	// Take a screenshot of the canvas
-	const canvas = document.querySelector('canvas');
-	const img = canvas.toDataURL('image/png'); // Base64-encoded PNG image
-
-	const payload = {
-		unique_code: code,
-		json: voxels,
-		image: img, // Include the image in the payload
-	};
-
-	if (ENVIROMENT !== 'local') {
-		fetch(`${API_BASE_URL}/modeling/update`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(payload),
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				Swal.fire({
-					title: 'Success',
-					text: 'Model saved successfully',
-					icon: 'success',
-					confirmButtonText: 'Ok',
-				});
-			});
-	} else {
-		fetch('/server/api/modeling/update', {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(payload),
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				Swal.fire({
-					title: 'Success',
-					text: 'Model saved successfully',
-					icon: 'success',
-					confirmButtonText: 'Ok',
-				});
-			});
-	}
-}
-
-// save as json
-function saveAsJson() {
-	const voxels = JSON.parse(localStorage.getItem('voxels'));
-	const code = localStorage.getItem('code');
-
 	const blob = new Blob([JSON.stringify(voxels)], {
 		type: 'application/json',
 	});
 	const url = URL.createObjectURL(blob);
-	const a = document.createElement('a');
-	a.href = url;
-	a.download = `${code}.json`;
-	document.body.appendChild(a);
-	a.click();
-	setTimeout(() => {
-		document.body.removeChild(a);
-		window.URL.revokeObjectURL(url);
-	}, 0);
-}
+	const link = document.createElement('a');
+	link.href = url;
+	link.download = `${code}.json`;
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+	URL.revokeObjectURL(url);
+};
 
-window.saveAsJson = saveAsJson;
-
-// open as json
-function openAsJson() {
+// Open voxels from JSON file
+const openAsJson = () => {
 	const input = document.createElement('input');
 	input.type = 'file';
 	input.accept = '.json';
@@ -159,15 +119,26 @@ function openAsJson() {
 	input.onchange = (e) => {
 		const file = e.target.files[0];
 		const reader = new FileReader();
-		reader.readAsText(file, 'UTF-8');
 		reader.onload = (readerEvent) => {
-			const content = readerEvent.target.result;
-			localStorage.setItem('voxels', content);
+			localStorage.setItem('voxels', readerEvent.target.result);
 			location.reload();
 		};
+		reader.readAsText(file);
 	};
-}
+};
 
+// Initialize functionality
+const initialize = () => {
+	handleUrlParams();
+
+	const action = localStorage.getItem('c');
+	toggleElementVisibility('#save-market', action === 'c');
+};
+
+initialize();
+
+// Expose functions to the global scope
+window.reset = resetVoxels;
+window.save = saveModel;
+window.saveAsJson = saveAsJson;
 window.openAsJson = openAsJson;
-
-window.save = save;
