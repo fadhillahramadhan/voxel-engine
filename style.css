@@ -1,6 +1,7 @@
 /* import needed font */
 
 @import url('https://fonts.googleapis.com/css2?family=Haas+Grot+Text+R+Web:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Dancing+Script&family=Inter&family=Mulish:ital,wght@1,200&family=Pixelify+Sans:wght@400..700&family=Poppins:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Satisfy&display=swap');
 
 body {
   margin: 0;
@@ -9,10 +10,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: 'Pixelify Sans', sans-serif;
+
 }
-
-
 
 
 /* Navbar styling */
@@ -28,6 +28,7 @@ body {
   min-height: 42px;
   max-height: 42px;
   z-index: 10;
+  /* pixelify sans */
 }
 
 .container {
@@ -175,6 +176,8 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  font-family: 'Pixelify Sans', sans-serif !important;
+
   transition: background-color 0.3s ease;
 }
 
