@@ -64,7 +64,7 @@ export default class VoxelGuiControl {
 			.name('Remove Texture');
 
 		// Open the folder by default (optional)
-		materialFolder.open();
+		// materialFolder.open();
 	}
 
 	applyTexture(imagePath) {

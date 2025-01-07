@@ -155,9 +155,14 @@ const initialize = () => {
 	}
 };
 
+const toggleControlHint = () => {
+	document.querySelector('.control-hint').style.display = 'none';
+};
+
 initialize();
 
 // Expose functions to the global scope
+window.toggleControlHint = toggleControlHint;
 window.reset = resetVoxels;
 window.save = saveModel;
 window.saveAsJson = saveAsJson;

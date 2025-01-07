@@ -214,3 +214,10 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* hide control hint when mobile */
+@media (max-width: 600px) {
+  .control-hint {
+    display: none;
+  }
+}

@@ -8,14 +8,14 @@ export default class ModeGuiControl {
 
 		const modeFolder = gui.addFolder('Mode');
 
+		// close all folders
+
 		modeFolder
 			.add(this.params, 'mode', ['default', 'box'])
 			.name('Mode')
 			.onChange(() => {
 				this.update();
 			});
-
-		modeFolder.open();
 	}
 
 	update() {
