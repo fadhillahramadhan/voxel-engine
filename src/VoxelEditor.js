@@ -183,6 +183,12 @@ export default class VoxelEditor {
 	}
 
 	onDocumentMouseDown(event) {
+		const action = localStorage.getItem('c');
+
+		if (action === 'v') {
+			return;
+		}
+
 		if (
 			event.button === 0 &&
 			this.mode === 'default' &&
