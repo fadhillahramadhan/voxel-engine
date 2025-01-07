@@ -95,12 +95,18 @@ const resetVoxels = () => {
 // Save voxels as JSON file
 const saveAsJson = () => {
 	const voxels = JSON.parse(localStorage.getItem('voxels'));
-	const code = localStorage.getItem('code');
+	let code = localStorage.getItem('code');
 	const blob = new Blob([JSON.stringify(voxels)], {
 		type: 'application/json',
 	});
 	const url = URL.createObjectURL(blob);
 	const link = document.createElement('a');
+
+	// if !code
+	if (!code) {
+		code = 'voxel-model';
+	}
+
 	link.href = url;
 	link.download = `${code}.json`;
 	document.body.appendChild(link);

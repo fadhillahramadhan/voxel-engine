@@ -14,12 +14,24 @@
         <nav class="navbar">
             <div class="container">
                  <h1 class="navbar-title">Voxelize Engine</h1>
-                 <div style="display: flex; gap: 10px">
+                  <!-- <div style="display: flex; gap: 10px">
                      <button class="reset-btn button-action" onclick="reset()">Reset All</button>
                      <button class="load-btn button-action" onclick="openAsJson()">Load Json</button>
                      <button class="save-btn button-action" onclick="saveAsJson()">Save As Json</button>
                      <button id="save-market" class="save-btn button-action" onclick="save()" style="display: none;">Save To Market</button>
-                 </div>
+                 </div> -->
+
+                 <div class="dropdown">
+                    <button class="dropdown-button">Actions</button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="reset()">Reset All</a>
+                        <a href="#" onclick="openAsJson()">Load Json</a>
+                        <a href="#" onclick="saveAsJson()">Save As Json</a>
+                        <a href="#" id="save-market" onclick="save()">Save To Market</a>
+                    </div>
+                </div>
+                
+                
             </div>
         </nav>
     </header>
