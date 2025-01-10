@@ -313,7 +313,18 @@ export default class VoxelEditor {
 		const intersects = this.raycaster.intersectObjects(this.voxels);
 		if (intersects.length > 0) {
 			const intersectedVoxel = intersects[0].object;
-			this.scene.remove(intersectedVoxel);
+
+			// gsap animation
+			gsap.to(intersectedVoxel.scale, {
+				duration: 1,
+				x: 0,
+				y: 0,
+				z: 0,
+				onComplete: () => {
+					this.scene.remove(intersectedVoxel);
+				},
+			});
+
 			this.voxels = this.voxels.filter(
 				(voxel) => voxel !== intersectedVoxel
 			);
