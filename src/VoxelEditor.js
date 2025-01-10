@@ -61,6 +61,10 @@ export default class VoxelEditor {
 
 		this.sceneColor = '#000000';
 
+		this.startPoint = null;
+		this.endPoint = null;
+		this.lastStartPoint = null;
+
 		this.loadVoxels();
 		this.animate();
 	}
@@ -124,7 +128,7 @@ export default class VoxelEditor {
 		this.gridHelper.position.y -= 0.5;
 		this.gridHelper.position.x -= 0.5;
 		this.gridHelper.position.z -= 0.5;
-		// this.scene.add(this.gridHelper);
+		this.scene.add(this.gridHelper);
 	}
 
 	addGroundPlane() {
@@ -198,13 +202,41 @@ export default class VoxelEditor {
 		});
 	}
 
-	onDocumentMouseDown(event) {
-		const action = localStorage.getItem('c');
+	// ON MOUSE MOVE HANDLE BOX MODE
+	onDocumentMouseMove(event) {
+		this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+		this.raycaster.setFromCamera(this.mouse, this.camera);
 
-		if (action === 'v') {
-			return;
+		const intersects = this.raycaster.intersectObjects(this.voxels);
+
+		if (intersects.length > 0) {
+			const intersect = intersects[0];
+			const faceNormal = intersect.face.normal.clone();
+			const newPosition = intersect.object.position
+				.clone()
+				.add(faceNormal);
+			this.snapToGrid(newPosition);
+
+			this.ghostVoxel.position.copy(newPosition);
+			this.ghostVoxel.visible = true;
+		} else {
+			const planeIntersect = this.raycaster.intersectObject(
+				this.groundPlane
+			);
+			if (planeIntersect.length > 0) {
+				const point = planeIntersect[0].point;
+				this.snapToGrid(point);
+
+				this.ghostVoxel.position.copy(point);
+				this.ghostVoxel.visible = true;
+			} else {
+				this.ghostVoxel.visible = false;
+			}
 		}
+	}
 
+	onDocumentMouseDown(event) {
 		if (
 			event.button === 0 &&
 			this.mode === 'default' &&
@@ -217,9 +249,6 @@ export default class VoxelEditor {
 				this.ghostVoxel.position.clone(),
 				this.VoxelGuiControl.params
 			);
-			// this.scene.add(newVoxel.mesh);
-			// this.voxels.push(newVoxel.mesh);
-			// this.saveVoxels();
 
 			// GSAP Animation
 			gsap.from(newVoxel.mesh.scale, {
@@ -229,6 +258,15 @@ export default class VoxelEditor {
 				z: 0,
 				ease: 'bounce',
 			});
+
+			// check first if there is a voxel in the same position
+			const existingVoxel = this.voxels.find((voxel) =>
+				voxel.position.equals(newVoxel.mesh.position)
+			);
+
+			if (existingVoxel) {
+				return;
+			}
 
 			// Add to scene
 			this.scene.add(newVoxel.mesh);
@@ -247,67 +285,44 @@ export default class VoxelEditor {
 				'Waktu eksekusi Normal Mode: ' + (endTime - startTime) + ' ms'
 			);
 		} else if (event.button === 0 && this.mode === 'box') {
-			const startTime = performance.now(); // Mulai pengukuran waktu
-			// Box mode: select points for box creation
+			// place ghostvoxel with opacity
+
 			if (!this.startPoint) {
 				this.startPoint = this.ghostVoxel.position.clone();
 			} else {
+				// remove last startpoint
+				this.scene.remove(this.lastStartPoint);
+
 				this.endPoint = this.ghostVoxel.position.clone();
 				this.createVoxelBox(this.startPoint, this.endPoint);
 				this.startPoint = null;
 				this.endPoint = null;
 			}
 
-			const endTime = performance.now(); // Selesai pengukuran waktu
+			// if theres start point place one block just like normal mode
+			if (this.startPoint) {
+				// but like a ghost voxel
+				let lastStartPointMaterial = new THREE.MeshStandardMaterial({
+					color: 0x0000ff,
+					opacity: 0.5,
+					transparent: true,
+				});
 
-			console.log(
-				'Waktu eksekusi Box Mode: ' + (endTime - startTime) + ' ms'
-			);
-		}
-	}
+				const ghostGeometry = new THREE.BoxGeometry(
+					this.voxelSize,
+					this.voxelSize,
+					this.voxelSize
+				);
 
-	createVoxelBox(start, end) {
-		const addedVoxels = [];
+				this.lastStartPoint = new THREE.Mesh(
+					ghostGeometry,
+					lastStartPointMaterial
+				);
+				this.lastStartPoint.position.copy(this.startPoint);
 
-		// Calculate the min and max points
-		const minX = Math.min(start.x, end.x);
-		const maxX = Math.max(start.x, end.x);
-		const minY = Math.min(start.y, end.y);
-		const maxY = Math.max(start.y, end.y);
-		const minZ = Math.min(start.z, end.z);
-		const maxZ = Math.max(start.z, end.z);
-
-		// Loop over the dimensions to create a box of voxels
-		for (let x = minX; x <= maxX; x += this.voxelSize) {
-			for (let y = minY; y <= maxY; y += this.voxelSize) {
-				for (let z = minZ; z <= maxZ; z += this.voxelSize) {
-					const position = new THREE.Vector3(x, y, z);
-					const newVoxel = new Voxel(
-						position,
-						this.VoxelGuiControl.params
-					);
-					// add gsap
-					gsap.from(newVoxel.mesh.scale, {
-						duration: 1,
-						x: 0,
-						y: 0,
-						z: 0,
-					});
-
-					this.scene.add(newVoxel.mesh);
-					this.voxels.push(newVoxel.mesh);
-					addedVoxels.push(newVoxel.mesh);
-				}
+				this.scene.add(this.lastStartPoint);
 			}
 		}
-		this.saveVoxels();
-
-		// Add to undo stack
-		this.undoStack.push({
-			type: 'addBox',
-			voxels: addedVoxels,
-		});
-		this.redoStack = [];
 	}
 
 	onDocumentRightClick(event) {
@@ -341,38 +356,50 @@ export default class VoxelEditor {
 		}
 	}
 
-	onDocumentMouseMove(event) {
-		this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-		this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+	createVoxelBox(start, end) {
+		const addedVoxels = [];
 
-		this.raycaster.setFromCamera(this.mouse, this.camera);
+		// Calculate the min and max points
+		const minX = Math.min(start.x, end.x);
+		const maxX = Math.max(start.x, end.x);
+		const minY = Math.min(start.y, end.y);
+		const maxY = Math.max(start.y, end.y);
+		const minZ = Math.min(start.z, end.z);
+		const maxZ = Math.max(start.z, end.z);
 
-		const intersects = this.raycaster.intersectObjects(this.voxels);
+		// add start end ghostvoxel
 
-		if (intersects.length > 0) {
-			const intersect = intersects[0];
-			const faceNormal = intersect.face.normal.clone();
-			const newPosition = intersect.object.position
-				.clone()
-				.add(faceNormal);
-			this.snapToGrid(newPosition);
+		// Loop over the dimensions to create a box of voxels
+		for (let x = minX; x <= maxX; x += this.voxelSize) {
+			for (let y = minY; y <= maxY; y += this.voxelSize) {
+				for (let z = minZ; z <= maxZ; z += this.voxelSize) {
+					const position = new THREE.Vector3(x, y, z);
+					const newVoxel = new Voxel(
+						position,
+						this.VoxelGuiControl.params
+					);
+					// add gsap
+					gsap.from(newVoxel.mesh.scale, {
+						duration: 1,
+						x: 0,
+						y: 0,
+						z: 0,
+					});
 
-			this.ghostVoxel.position.copy(newPosition);
-			this.ghostVoxel.visible = true;
-		} else {
-			const planeIntersect = this.raycaster.intersectObject(
-				this.groundPlane
-			);
-			if (planeIntersect.length > 0) {
-				const point = planeIntersect[0].point;
-				this.snapToGrid(point);
-
-				this.ghostVoxel.position.copy(point);
-				this.ghostVoxel.visible = true;
-			} else {
-				this.ghostVoxel.visible = false;
+					this.scene.add(newVoxel.mesh);
+					this.voxels.push(newVoxel.mesh);
+					addedVoxels.push(newVoxel.mesh);
+				}
 			}
 		}
+		this.saveVoxels();
+
+		// Add to undo stack
+		this.undoStack.push({
+			type: 'addBox',
+			voxels: addedVoxels,
+		});
+		this.redoStack = [];
 	}
 
 	undo() {

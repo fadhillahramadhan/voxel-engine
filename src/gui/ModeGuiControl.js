@@ -4,7 +4,7 @@ export default class ModeGuiControl {
 
 		this.params = {
 			mode: 'default', //default. face, box
-			grid: false,
+			grid: true,
 			sceneColor: '#ffffff',
 		};
 
