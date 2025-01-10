@@ -13,6 +13,10 @@ import Voxel from './Voxel.js';
 import VoxelGuiControl from './gui/VoxelGuiControl.js';
 import LightGuiControl from './gui/LightGuiControl.js';
 import ModeGuiControl from './gui/ModeGuiControl.js';
+
+// add gsap
+import gsap from 'gsap';
+
 import * as dat from 'dat.gui';
 
 let gui = new dat.GUI();
@@ -211,6 +215,20 @@ export default class VoxelEditor {
 				this.ghostVoxel.position.clone(),
 				this.VoxelGuiControl.params
 			);
+			// this.scene.add(newVoxel.mesh);
+			// this.voxels.push(newVoxel.mesh);
+			// this.saveVoxels();
+
+			// GSAP Animation
+			gsap.from(newVoxel.mesh.scale, {
+				duration: 1,
+				x: 0,
+				y: 0,
+				z: 0,
+				ease: 'bounce',
+			});
+
+			// Add to scene
 			this.scene.add(newVoxel.mesh);
 			this.voxels.push(newVoxel.mesh);
 			this.saveVoxels();
@@ -266,6 +284,14 @@ export default class VoxelEditor {
 						position,
 						this.VoxelGuiControl.params
 					);
+					// add gsap
+					gsap.from(newVoxel.mesh.scale, {
+						duration: 1,
+						x: 0,
+						y: 0,
+						z: 0,
+					});
+
 					this.scene.add(newVoxel.mesh);
 					this.voxels.push(newVoxel.mesh);
 					addedVoxels.push(newVoxel.mesh);
@@ -452,6 +478,15 @@ export default class VoxelEditor {
 				material: data.material,
 				texture: data.texture,
 			});
+
+			// like randomly going into the scene
+			gsap.from(voxel.mesh.position, {
+				duration: 1,
+				x: Math.random() * 10 - 5,
+				y: Math.random() * 10 - 5,
+				z: Math.random() * 10 - 5,
+			});
+
 			this.scene.add(voxel.mesh);
 			this.voxels.push(voxel.mesh);
 		});
