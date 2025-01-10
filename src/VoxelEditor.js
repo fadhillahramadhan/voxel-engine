@@ -1,6 +1,10 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+// glb loader
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // rgbe loader
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
@@ -13,6 +17,8 @@ import * as dat from 'dat.gui';
 import { texture } from 'three/tsl';
 
 let gui = new dat.GUI();
+
+const modelURLs = ['Cherry.glb', 'Bonsai.glb', 'Duck.glb'];
 
 export default class VoxelEditor {
 	constructor() {
@@ -35,8 +41,10 @@ export default class VoxelEditor {
 
 		// Initialize the LightGuiControl and pass references to the lights
 		this.LightGuiControl = new LightGuiControl(this, gui);
+		this.rayCaster = new THREE.Raycaster();
 
 		this.nearestColor = 0x00ff00;
+		this.model = null;
 
 		this.loadVoxels();
 		this.animate();
@@ -108,7 +116,7 @@ export default class VoxelEditor {
 		this.gridHelper.position.y -= 0.5;
 		this.gridHelper.position.x -= 0.5;
 		this.gridHelper.position.z -= 0.5;
-		this.scene.add(this.gridHelper);
+		// this.scene.add(this.gridHelper);
 	}
 
 	addGroundPlane() {
@@ -175,9 +183,9 @@ export default class VoxelEditor {
 				this.ModeGuiControl.params.mode = 'default';
 				this.updateMode();
 			}
-			// screenshoot
+			// import obj or gltf
 			if (event.key === 'i') {
-				this.exportImage();
+				this.importOBJGLTFtoVoxel();
 			}
 		});
 	}
@@ -461,6 +469,16 @@ export default class VoxelEditor {
 
 	updateMode() {
 		this.mode = this.ModeGuiControl.params.mode;
+		// remove gridhelper
+		if (!this.ModeGuiControl.params.grid) {
+			// rmove a gridHelper
+			this.scene.remove(this.gridHelper);
+		} else {
+			// add a gridHelper
+			this.scene.add(this.gridHelper);
+		}
+
+		console.log(this.mode.params);
 	}
 
 	animate() {
@@ -484,6 +502,136 @@ export default class VoxelEditor {
 			},
 			{ binary: false }
 		);
+	}
+
+	importOBJGLTFtoVoxel() {
+		// asking for modelaccuracy and startpoint
+
+		let modelAccuracy = prompt('Enter model accuracy');
+		let startPoint = prompt('Enter start point');
+
+		const input = document.createElement('input');
+		input.type = 'file';
+		input.accept = '.obj,.gltf,.glb';
+		input.onchange = async (event) => {
+			const file = event.target.files[0];
+			const extension = file.name.split('.').pop().toLowerCase();
+
+			// save to public folder
+			const url = URL.createObjectURL(file);
+			const loader = new GLTFLoader();
+			const dracoLoader = new DRACOLoader();
+			dracoLoader.setDecoderPath('three/examples/js/libs/draco/');
+			loader.setDRACOLoader(dracoLoader);
+
+			loader.load(url, (gltf) => {
+				this.voxelizeModel(gltf.scene, startPoint, modelAccuracy);
+			});
+		};
+		input.click();
+	}
+	voxelizeModel(importedScene, startPoint, modelAccuracy) {
+		let params = {
+			modelSize: modelAccuracy,
+			gridSize: 0.2,
+		};
+
+		const importedMeshes = [];
+		importedScene.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				child.material.side = THREE.DoubleSide;
+				importedMeshes.push(child);
+			}
+		});
+
+		let boundingBox = new THREE.Box3().setFromObject(importedScene);
+		const size = boundingBox.getSize(new THREE.Vector3());
+		const scaleFactor = params.modelSize / size.length();
+		const center = boundingBox
+			.getCenter(new THREE.Vector3())
+			.multiplyScalar(-scaleFactor);
+
+		importedScene.scale.multiplyScalar(scaleFactor);
+		importedScene.position.copy(center);
+
+		boundingBox = new THREE.Box3().setFromObject(importedScene);
+		// boundingBox.min.y += 0.5 * params.gridSize; // Adjust grid for better visualization
+
+		const voxelHash = new Set(); // Use Set for faster checking
+		const modelVoxels = [];
+
+		// Precompute step values and bounding box floors
+		const minX = Math.floor(boundingBox.min.x);
+		const minY = Math.floor(boundingBox.min.y);
+		const minZ = Math.floor(boundingBox.min.z);
+		const maxX = Math.floor(boundingBox.max.x);
+		const maxY = Math.floor(boundingBox.max.y);
+		const maxZ = Math.floor(boundingBox.max.z);
+
+		const gridStep = params.gridSize;
+
+		// Main loop
+		for (let i = minX; i < maxX; i += gridStep) {
+			for (let j = minY; j < maxY; j += gridStep) {
+				for (let k = minZ; k < maxZ; k += gridStep) {
+					const pos = new THREE.Vector3(i, j, k);
+					const hashKey = `${Math.floor(pos.x)},${Math.floor(
+						pos.y
+					)},${Math.floor(pos.z)}`;
+
+					if (!voxelHash.has(hashKey)) {
+						// Check if voxel is inside mesh
+						let foundVoxel = false;
+						for (
+							let meshCnt = 0;
+							meshCnt < importedMeshes.length;
+							meshCnt++
+						) {
+							const mesh = importedMeshes[meshCnt];
+							this.VoxelGuiControl.params.color =
+								mesh.material.color.getHex();
+
+							if (
+								this.isInsideMesh(
+									pos,
+									new THREE.Vector3(0, 0, 1),
+									mesh
+								)
+							) {
+								pos.x = Math.floor(pos.x);
+								pos.y = Math.floor(pos.y + startPoint);
+								pos.z = Math.floor(pos.z);
+
+								const voxel = new Voxel(
+									pos,
+									this.VoxelGuiControl.params
+								);
+								voxelHash.add(hashKey); // Mark as occupied
+								modelVoxels.push(voxel);
+
+								// Add voxel mesh to the scene
+								this.scene.add(voxel.mesh);
+								this.voxels.push(voxel.mesh);
+								this.saveVoxels();
+								foundVoxel = true;
+								break; // Exit mesh loop once voxel is found
+							}
+						}
+
+						// Only add voxel to hash if found
+						if (foundVoxel) {
+							voxelHash.add(hashKey);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	isInsideMesh(pos, ray, mesh) {
+		this.rayCaster.set(pos, ray);
+		this.rayCasterIntersects = this.rayCaster.intersectObject(mesh, false);
+		return this.rayCasterIntersects.length % 2 === 1;
 	}
 
 	// export image
