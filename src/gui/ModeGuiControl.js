@@ -5,7 +5,7 @@ export default class ModeGuiControl {
 		this.params = {
 			mode: 'default', //default. face, box
 			grid: false,
-			sceneColor: '#000000',
+			sceneColor: '#ffffff',
 		};
 
 		const modeFolder = gui.addFolder('Mode');

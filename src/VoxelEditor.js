@@ -59,6 +59,8 @@ export default class VoxelEditor {
 		this.nearestColor = 0x00ff00;
 		this.model = null;
 
+		this.sceneColor = '#000000';
+
 		this.loadVoxels();
 		this.animate();
 	}
@@ -527,7 +529,8 @@ export default class VoxelEditor {
 		}
 
 		// also check for scene color it would be hex
-		this.renderer.setClearColor(this.ModeGuiControl.params.sceneColor);
+		this.sceneColor = this.ModeGuiControl.params.sceneColor;
+		this.renderer.setClearColor(this.sceneColor, 1);
 
 		console.log(this.mode.params);
 	}
