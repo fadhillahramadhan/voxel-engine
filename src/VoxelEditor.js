@@ -480,6 +480,9 @@ export default class VoxelEditor {
 			this.scene.add(this.gridHelper);
 		}
 
+		// also check for scene color it would be hex
+		this.renderer.setClearColor(this.ModeGuiControl.params.sceneColor);
+
 		console.log(this.mode.params);
 	}
 
