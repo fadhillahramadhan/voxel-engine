@@ -14,11 +14,20 @@ import VoxelGuiControl from './gui/VoxelGuiControl.js';
 import LightGuiControl from './gui/LightGuiControl.js';
 import ModeGuiControl from './gui/ModeGuiControl.js';
 import * as dat from 'dat.gui';
-import { texture } from 'three/tsl';
 
 let gui = new dat.GUI();
 
-const modelURLs = ['Cherry.glb', 'Bonsai.glb', 'Duck.glb'];
+// Import via ES6 modules
+import {
+	computeBoundsTree,
+	disposeBoundsTree,
+	acceleratedRaycast,
+} from 'three-mesh-bvh';
+
+// Generate geometry and associated BVH
+THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
+THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
+THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 export default class VoxelEditor {
 	constructor() {
@@ -50,18 +59,6 @@ export default class VoxelEditor {
 		this.animate();
 	}
 
-	addHDRIBackground() {
-		// Load HDRi image
-		const loader = new RGBELoader();
-		loader.setDataType(THREE.UnsignedByteType); // Use the correct data type for HDR images
-		loader.load('christmas_photo_studio_04_2k', (texture) => {
-			// Set the HDR texture as the scene background
-			texture.mapping = THREE.EquirectangularReflectionMapping;
-			this.scene.background = texture;
-			this.scene.environment = texture; // Optional: for reflective surfaces and environment lighting
-		});
-	}
-
 	initScene() {
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera(
@@ -78,7 +75,12 @@ export default class VoxelEditor {
 			antialias: true,
 			preserveDrawingBuffer: true,
 		});
-		this.renderer.setClearColor(0x87ceeb, 1);
+		// this.renderer.setClearColor(0x87ceeb, 1);
+		// showing model color
+		// this.renderer.setClearColor(0x000000, 1);
+		// white clear
+		this.renderer.setClearColor(0xffffff, 1);
+
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
 
 		this.controls = new OrbitControls(
@@ -508,7 +510,6 @@ export default class VoxelEditor {
 		// asking for modelaccuracy and startpoint
 
 		let modelAccuracy = prompt('Enter model accuracy');
-		let startPoint = prompt('Enter start point');
 
 		const input = document.createElement('input');
 		input.type = 'file';
@@ -525,12 +526,14 @@ export default class VoxelEditor {
 			loader.setDRACOLoader(dracoLoader);
 
 			loader.load(url, (gltf) => {
-				this.voxelizeModel(gltf.scene, startPoint, modelAccuracy);
+				this.voxelizeModel(gltf.scene, modelAccuracy);
 			});
 		};
 		input.click();
 	}
-	voxelizeModel(importedScene, startPoint, modelAccuracy) {
+
+	voxelizeModel(importedScene, modelAccuracy) {
+		let startPoint = 10;
 		let params = {
 			modelSize: modelAccuracy,
 			gridSize: 0.2,
@@ -538,7 +541,10 @@ export default class VoxelEditor {
 
 		const importedMeshes = [];
 		importedScene.traverse((child) => {
-			if (child instanceof THREE.Mesh) {
+			if (child.isMesh && child.geometry) {
+				console.log(child);
+				child.geometry.computeBoundsTree();
+				// child.geometry.disposeBoundsTree();
 				child.material.side = THREE.DoubleSide;
 				importedMeshes.push(child);
 			}
@@ -588,8 +594,20 @@ export default class VoxelEditor {
 							meshCnt++
 						) {
 							const mesh = importedMeshes[meshCnt];
-							this.VoxelGuiControl.params.color =
-								mesh.material.color.getHex();
+							// this.VoxelGuiControl.params.color =
+							// 	mesh.material.color.getHex();
+
+							// get h s l from color
+							const color = new THREE.Color();
+
+							const { h, s, l } =
+								mesh.material.color.getHSL(color);
+							color.setHSL(h, s * 0.8, l * 0.8 + 0.2);
+
+							// color to hex
+
+							// set color to voxel
+							this.VoxelGuiControl.setColor(color.getHex());
 
 							if (
 								this.isInsideMesh(

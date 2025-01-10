@@ -1,10 +1,20 @@
 // Voxel.js
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
+import {
+	computeBoundsTree,
+	disposeBoundsTree,
+	acceleratedRaycast,
+} from 'three-mesh-bvh';
+
+THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
+THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
+THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 export default class Voxel {
 	constructor(position, properties) {
 		this.geometry = new THREE.BoxGeometry(1, 1, 1);
+		this.geometry.computeBoundsTree();
 
 		if (
 			properties.material === 'Standard' ||
