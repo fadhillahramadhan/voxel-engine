@@ -673,8 +673,6 @@ export default class VoxelEditor {
 							meshCnt++
 						) {
 							const mesh = importedMeshes[meshCnt];
-							// this.VoxelGuiControl.params.color =
-							// 	mesh.material.color.getHex();
 
 							// get h s l from color
 							const color = new THREE.Color();
