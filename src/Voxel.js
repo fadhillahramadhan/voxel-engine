@@ -16,6 +16,14 @@ export default class Voxel {
 		this.geometry = new THREE.BoxGeometry(1, 1, 1);
 		this.geometry.computeBoundsTree();
 
+		// receive shadow
+		this.geometry.castShadow = true;
+		this.geometry.receiveShadow = true;
+		// add anisotropy 16
+
+		// flat shading
+		// this.geometry.flatShading = true;
+
 		if (
 			properties.material === 'Standard' ||
 			properties.material === 'MeshStandardMaterial'

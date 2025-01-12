@@ -1,64 +1,43 @@
+// addLights() {
+// 	// Hemisphere white light for modelling
+// 	this.ambientLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+// 	this.scene.add(this.ambientLight);
+// 	// add helper
+
+// 	// spot white light
+// 	this.spotLight = new THREE.SpotLight(0xffffff, 1);
+// 	this.spotLight.castShadow = true;
+// 	this.spotLight.shadow.bias = -0.0001;
+// 	this.spotLight.shadow.mapSize.width = 1024 * 4;
+// 	this.spotLight.shadow.mapSize.height = 1024 * 4;
+// 	this.scene.add(this.spotLight);
+// }
+
 export default class LightGuiControl {
 	constructor(voxelEditor, gui) {
 		this.voxelEditor = voxelEditor;
 
-		this.params = {
-			ambientIntensity: 10,
-			directionalIntensity: 1,
-			ambientColor: '#404040',
-			directionalColor: '#ffffff',
-		};
+		this.lightFolder = gui.addFolder('Light');
+		// this.lightFolder.open();
 
-		// Create a folder for lighting properties in the shared GUI instance
-		const lightFolder = gui.addFolder('Lighting'); // This is a proper folder
+		// Ambient Light
+		this.ambientLightFolder = this.lightFolder.addFolder('Ambient Light');
+		this.ambientLightFolder.open();
+		this.ambientLightFolder
+			.add(this.voxelEditor.ambientLight, 'intensity', 0, 1, 0.01)
+			.name('Intensity');
 
-		lightFolder
-			.add(this.params, 'ambientIntensity', 0, 100)
-			.name('Ambient Intensity')
-			.onChange(() => {
-				this.update();
-			});
+		// // ambient light color
+		// this.ambientLightFolder
+		// 	.addColor(this.voxelEditor.ambientLight, 'color')
+		// 	.name('Color')
+		// 	.onChange(() => {
+		// 		this.update();
+		// 	});
 
-		lightFolder
-			.addColor(this.params, 'ambientColor')
-			.name('Ambient Color')
-			.onChange(() => {
-				this.update();
-			});
-		lightFolder
-			.add(this.params, 'directionalIntensity', 0, 100)
-			.name('Directional Intensity')
-			.onChange(() => {
-				this.update();
-			});
-		lightFolder
-			.addColor(this.params, 'directionalColor')
-			.name('Directional Color')
-			.onChange(() => {
-				this.update();
-			});
-
-		// directional position
-		lightFolder.add(
-			this.voxelEditor.directionalLight.position,
-			'x',
-			-100,
-			100
-		);
-		lightFolder.add(
-			this.voxelEditor.directionalLight.position,
-			'y',
-			-100,
-			100
-		);
-		lightFolder.add(
-			this.voxelEditor.directionalLight.position,
-			'z',
-			-100,
-			100
-		);
-
-		// Allow the Lighting folder to be collapsible/minimizable
+		this.ambientLightFolder
+			.add(this.voxelEditor.ambientLight, 'visible')
+			.name('Visible');
 	}
 
 	update() {

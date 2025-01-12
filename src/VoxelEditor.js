@@ -11,6 +11,8 @@ import VoxelGuiControl from './gui/VoxelGuiControl.js';
 import LightGuiControl from './gui/LightGuiControl.js';
 import ModeGuiControl from './gui/ModeGuiControl.js';
 
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
 // Raycaster intersectobjc
 
 // add gsap
@@ -40,13 +42,13 @@ export default class VoxelEditor {
 		this.VoxelGuiControl = new VoxelGuiControl(this, gui);
 
 		// Initialize the LightGuiControl and pass references to the lights
-		// this.LightGuiControl = new LightGuiControl(this, gui);
+		this.LightGuiControl = new LightGuiControl(this, gui);
 		this.rayCaster = new THREE.Raycaster();
 
 		this.nearestColor = 0x00ff00;
 		this.model = null;
 
-		this.sceneColor = '#000000';
+		this.sceneColor = '#fafaf4';
 
 		this.startPoint = null;
 		this.endPoint = null;
@@ -72,10 +74,11 @@ export default class VoxelEditor {
 			antialias: true,
 			preserveDrawingBuffer: true,
 		});
-
-		this.renderer.setClearColor(0xffffff, 1);
-
+		this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+		this.renderer.toneMappingExposure = 2.3;
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
+
+		this.renderer.setClearColor('#fafaf4', 1);
 
 		this.controls = new OrbitControls(
 			this.camera,
@@ -87,28 +90,17 @@ export default class VoxelEditor {
 		this.raycaster = new THREE.Raycaster();
 		this.mouse = new THREE.Vector2();
 		this.voxelSize = 1;
+
+		this.gridSize = 30;
 	}
 
 	addLights() {
-		this.ambientLight = new THREE.AmbientLight(0x404040);
-		this.ambientLight.intensity = 10;
+		this.ambientLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
 		this.scene.add(this.ambientLight);
-
-		// Directional light
-		this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-		this.directionalLight.position.set(5, 10, 7.5).normalize();
-		// add sphere to visualize the light
-		const sphereSize = 1;
-		const directionalLightHelper = new THREE.PointLightHelper(
-			this.directionalLight,
-			sphereSize
-		);
-		this.scene.add(directionalLightHelper);
-		this.scene.add(this.directionalLight);
 	}
 
 	addGrid() {
-		this.gridHelper = new THREE.GridHelper(50, 50);
+		this.gridHelper = new THREE.GridHelper(this.gridSize, this.gridSize);
 		this.gridHelper.position.y -= 0.5;
 		this.gridHelper.position.x -= 0.5;
 		this.gridHelper.position.z -= 0.5;
@@ -116,7 +108,10 @@ export default class VoxelEditor {
 	}
 
 	addGroundPlane() {
-		const planeGeometry = new THREE.PlaneGeometry(50, 50);
+		const planeGeometry = new THREE.PlaneGeometry(
+			this.gridSize,
+			this.gridSize
+		);
 		const planeMaterial = new THREE.MeshBasicMaterial({ visible: false });
 		this.groundPlane = new THREE.Mesh(planeGeometry, planeMaterial);
 		this.groundPlane.rotation.x = -Math.PI / 2;
@@ -226,6 +221,18 @@ export default class VoxelEditor {
 	}
 
 	onDocumentMouseDown(event) {
+		if (
+			this.ghostVoxel.position.x < -this.gridSize / 2 ||
+			this.ghostVoxel.position.x > (this.gridSize - 1) / 2 ||
+			this.ghostVoxel.position.z < -this.gridSize / 2 ||
+			this.ghostVoxel.position.z > (this.gridSize - 1) / 2 ||
+			this.ghostVoxel.position.y < 0
+		) {
+			console.log('Voxel out of bounds');
+			console.log(this.ghostVoxel.position);
+			return; // Don't allow placement
+		}
+
 		if (
 			event.button === 0 &&
 			this.mode === 'default' &&
@@ -570,15 +577,9 @@ export default class VoxelEditor {
 	}
 
 	updateLight() {
-		this.ambientLight.color.set(this.LightGuiControl.params.ambientColor);
-		this.ambientLight.intensity =
-			this.LightGuiControl.params.ambientIntensity;
-
-		this.directionalLight.color.set(
-			this.LightGuiControl.params.directionalColor
-		);
-		this.directionalLight.intensity =
-			this.LightGuiControl.params.directionalIntensity;
+		//
+		this.ambientLight.intensity = this.LightGuiControl.params.intensity;
+		this.ambientLight.visible = this.LightGuiControl.params.visible;
 	}
 
 	updateMode() {
@@ -592,10 +593,16 @@ export default class VoxelEditor {
 
 		this.sceneColor = this.ModeGuiControl.params.sceneColor;
 		this.renderer.setClearColor(this.sceneColor, 1);
+
+		// remove box ghostvoxel
+		this.scene.remove(this.lastStartPoint);
+		this.startPoint = null;
+		this.lastStartPoint = null;
 	}
 
 	animate() {
 		requestAnimationFrame(this.animate.bind(this));
+
 		this.controls.update();
 		this.renderer.render(this.scene, this.camera);
 	}
@@ -649,7 +656,7 @@ export default class VoxelEditor {
 		let performance = window.performance;
 		const startTime = performance.now(); // Start measuring time
 		const params = {
-			modelSize: 30,
+			modelSize: 20,
 			gridSize: 0.24,
 		};
 
