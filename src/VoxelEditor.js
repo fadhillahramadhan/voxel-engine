@@ -95,8 +95,21 @@ export default class VoxelEditor {
 	}
 
 	addLights() {
-		this.ambientLight = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+		this.ambientLight = new THREE.AmbientLight(0x404040);
+		this.ambientLight.intensity = 10;
 		this.scene.add(this.ambientLight);
+
+		// Directional light
+		this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+		this.directionalLight.position.set(5, 10, 7.5).normalize();
+		// add sphere to visualize the light
+		const sphereSize = 1;
+		const directionalLightHelper = new THREE.PointLightHelper(
+			this.directionalLight,
+			sphereSize
+		);
+		this.scene.add(directionalLightHelper);
+		this.scene.add(this.directionalLight);
 	}
 
 	addGrid() {
@@ -577,9 +590,15 @@ export default class VoxelEditor {
 	}
 
 	updateLight() {
-		//
-		this.ambientLight.intensity = this.LightGuiControl.params.intensity;
-		this.ambientLight.visible = this.LightGuiControl.params.visible;
+		this.ambientLight.color.set(this.LightGuiControl.params.ambientColor);
+		this.ambientLight.intensity =
+			this.LightGuiControl.params.ambientIntensity;
+
+		this.directionalLight.color.set(
+			this.LightGuiControl.params.directionalColor
+		);
+		this.directionalLight.intensity =
+			this.LightGuiControl.params.directionalIntensity;
 	}
 
 	updateMode() {
@@ -656,7 +675,7 @@ export default class VoxelEditor {
 		let performance = window.performance;
 		const startTime = performance.now(); // Start measuring time
 		const params = {
-			modelSize: 20,
+			modelSize: 30,
 			gridSize: 0.24,
 		};
 
