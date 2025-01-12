@@ -6,13 +6,12 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 // glb loader
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-// rgbe loader
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
-
 import Voxel from './Voxel.js';
 import VoxelGuiControl from './gui/VoxelGuiControl.js';
 import LightGuiControl from './gui/LightGuiControl.js';
 import ModeGuiControl from './gui/ModeGuiControl.js';
+
+// Raycaster intersectobjc
 
 // add gsap
 import gsap from 'gsap';
@@ -20,18 +19,6 @@ import gsap from 'gsap';
 import * as dat from 'dat.gui';
 
 let gui = new dat.GUI();
-
-// Import via ES6 modules
-import {
-	computeBoundsTree,
-	disposeBoundsTree,
-	acceleratedRaycast,
-} from 'three-mesh-bvh';
-
-// Generate geometry and associated BVH
-THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
-THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
-THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 export default class VoxelEditor {
 	constructor() {
@@ -53,7 +40,7 @@ export default class VoxelEditor {
 		this.VoxelGuiControl = new VoxelGuiControl(this, gui);
 
 		// Initialize the LightGuiControl and pass references to the lights
-		this.LightGuiControl = new LightGuiControl(this, gui);
+		// this.LightGuiControl = new LightGuiControl(this, gui);
 		this.rayCaster = new THREE.Raycaster();
 
 		this.nearestColor = 0x00ff00;
@@ -85,10 +72,7 @@ export default class VoxelEditor {
 			antialias: true,
 			preserveDrawingBuffer: true,
 		});
-		// this.renderer.setClearColor(0x87ceeb, 1);
-		// showing model color
-		// this.renderer.setClearColor(0x000000, 1);
-		// white clear
+
 		this.renderer.setClearColor(0xffffff, 1);
 
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -184,6 +168,11 @@ export default class VoxelEditor {
 			if (event.key === 'p') {
 				this.pickColorFromVoxel();
 			}
+			// replace Color
+			if (event.key === 'r') {
+				this.replaceColor();
+			}
+
 			if (event.ctrlKey && event.key === 'z') {
 				this.undo();
 			}
@@ -461,6 +450,54 @@ export default class VoxelEditor {
 		}
 	}
 
+	replaceColor() {
+		const intersects = this.raycaster.intersectObjects(this.voxels);
+
+		if (intersects.length > 0) {
+			// replace with a colorfromgui
+			const intersectedVoxel = intersects[0].object;
+
+			// remove intersected voxel
+			// gsap
+			gsap.to(intersectedVoxel.scale, {
+				duration: 1,
+				x: 0,
+				y: 0,
+				z: 0,
+				onComplete: () => {
+					this.scene.remove(intersectedVoxel);
+					this.voxels = this.voxels.filter(
+						(voxel) => voxel !== intersectedVoxel
+					);
+				},
+			});
+
+			// create new voxel with the same position
+			const newVoxel = new Voxel(
+				intersectedVoxel.position.clone(),
+				this.VoxelGuiControl.params
+			);
+
+			// gsap
+			gsap.from(newVoxel.mesh.scale, {
+				duration: 1,
+				x: 0,
+				y: 0,
+				z: 0,
+			});
+
+			// add to scene
+			this.scene.add(newVoxel.mesh);
+
+			// push to voxels
+			this.voxels.push(newVoxel.mesh);
+
+			// save voxels
+
+			this.saveVoxels();
+		}
+	}
+
 	snapToGrid(position) {
 		position.x = Math.round(position.x / this.voxelSize) * this.voxelSize;
 		position.y = Math.round(position.y / this.voxelSize) * this.voxelSize;
@@ -546,20 +583,15 @@ export default class VoxelEditor {
 
 	updateMode() {
 		this.mode = this.ModeGuiControl.params.mode;
-		// remove gridhelper
+
 		if (!this.ModeGuiControl.params.grid) {
-			// rmove a gridHelper
 			this.scene.remove(this.gridHelper);
 		} else {
-			// add a gridHelper
 			this.scene.add(this.gridHelper);
 		}
 
-		// also check for scene color it would be hex
 		this.sceneColor = this.ModeGuiControl.params.sceneColor;
 		this.renderer.setClearColor(this.sceneColor, 1);
-
-		console.log(this.mode.params);
 	}
 
 	animate() {
@@ -586,147 +618,157 @@ export default class VoxelEditor {
 	}
 
 	importOBJGLTFtoVoxel() {
-		// asking for modelaccuracy and startpoint
+		try {
+			const input = document.createElement('input');
+			input.type = 'file';
+			input.accept = '.obj,.gltf,.glb';
+			input.onchange = async (event) => {
+				const file = event.target.files[0];
+				const extension = file.name.split('.').pop().toLowerCase();
 
-		let modelAccuracy = prompt('Enter model accuracy');
+				// save to public folder
+				const loader = new GLTFLoader();
 
-		const input = document.createElement('input');
-		input.type = 'file';
-		input.accept = '.obj,.gltf,.glb';
-		input.onchange = async (event) => {
-			const file = event.target.files[0];
-			const extension = file.name.split('.').pop().toLowerCase();
+				// Optional: Provide a DRACOLoader instance to decode compressed mesh data
+				const dracoLoader = new DRACOLoader();
+				dracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
+				loader.setDRACOLoader(dracoLoader);
 
-			// save to public folder
-			const url = URL.createObjectURL(file);
-			const loader = new GLTFLoader();
-			const dracoLoader = new DRACOLoader();
-			dracoLoader.setDecoderPath('three/examples/js/libs/draco/');
-			loader.setDRACOLoader(dracoLoader);
-
-			loader.load(url, (gltf) => {
-				this.voxelizeModel(gltf.scene, modelAccuracy);
-			});
-		};
-		input.click();
+				const url = URL.createObjectURL(file);
+				loader.load(url, (gltf) => {
+					this.voxelizeModel(gltf.scene);
+				});
+			};
+			input.click();
+		} catch (error) {
+			console.log('Error in importing OBJ/GLTF to Voxel', error);
+		}
 	}
 
-	voxelizeModel(importedScene, modelAccuracy) {
-		let startPoint = 10;
-		let params = {
-			modelSize: modelAccuracy,
-			gridSize: 0.2,
+	async voxelizeModel(model) {
+		let performance = window.performance;
+		const startTime = performance.now(); // Start measuring time
+		const params = {
+			modelSize: 30,
+			gridSize: 0.24,
 		};
 
 		const importedMeshes = [];
-		importedScene.traverse((child) => {
-			if (child.isMesh && child.geometry) {
-				console.log(child);
-				child.geometry.computeBoundsTree();
-				// child.geometry.disposeBoundsTree();
+		model.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
 				child.material.side = THREE.DoubleSide;
 				importedMeshes.push(child);
 			}
 		});
 
-		let boundingBox = new THREE.Box3().setFromObject(importedScene);
+		let boundingBox = new THREE.Box3().setFromObject(model);
 		const size = boundingBox.getSize(new THREE.Vector3());
 		const scaleFactor = params.modelSize / size.length();
 		const center = boundingBox
 			.getCenter(new THREE.Vector3())
 			.multiplyScalar(-scaleFactor);
 
-		importedScene.scale.multiplyScalar(scaleFactor);
-		importedScene.position.copy(center);
+		model.scale.multiplyScalar(scaleFactor);
+		model.position.copy(center);
 
-		boundingBox = new THREE.Box3().setFromObject(importedScene);
-		// boundingBox.min.y += 0.5 * params.gridSize; // Adjust grid for better visualization
+		boundingBox = new THREE.Box3().setFromObject(model);
+		boundingBox.min.y += 0.5 * params.gridSize; // for egg grid to look better
 
-		const voxelHash = new Set(); // Use Set for faster checking
 		const modelVoxels = [];
 
-		// Precompute step values and bounding box floors
-		const minX = Math.floor(boundingBox.min.x);
-		const minY = Math.floor(boundingBox.min.y);
-		const minZ = Math.floor(boundingBox.min.z);
-		const maxX = Math.floor(boundingBox.max.x);
-		const maxY = Math.floor(boundingBox.max.y);
-		const maxZ = Math.floor(boundingBox.max.z);
-
-		const gridStep = params.gridSize;
-
-		// Main loop
-		for (let i = minX; i < maxX; i += gridStep) {
-			for (let j = minY; j < maxY; j += gridStep) {
-				for (let k = minZ; k < maxZ; k += gridStep) {
-					const pos = new THREE.Vector3(i, j, k);
-					const hashKey = `${Math.floor(pos.x)},${Math.floor(
-						pos.y
-					)},${Math.floor(pos.z)}`;
-
-					if (!voxelHash.has(hashKey)) {
-						// Check if voxel is inside mesh
-						let foundVoxel = false;
-						for (
-							let meshCnt = 0;
-							meshCnt < importedMeshes.length;
-							meshCnt++
-						) {
-							const mesh = importedMeshes[meshCnt];
-
-							// get h s l from color
-							const color = new THREE.Color();
-
-							const { h, s, l } =
-								mesh.material.color.getHSL(color);
-							color.setHSL(h, s * 0.8, l * 0.8 + 0.2);
-
-							// color to hex
-
-							// set color to voxel
-							this.VoxelGuiControl.setColor(color.getHex());
-
-							if (
-								this.isInsideMesh(
-									pos,
-									new THREE.Vector3(0, 0, 1),
-									mesh
-								)
-							) {
-								pos.x = Math.floor(pos.x);
-								pos.y = Math.floor(pos.y + startPoint);
-								pos.z = Math.floor(pos.z);
-
-								const voxel = new Voxel(
-									pos,
-									this.VoxelGuiControl.params
-								);
-								voxelHash.add(hashKey); // Mark as occupied
-								modelVoxels.push(voxel);
-
-								// Add voxel mesh to the scene
-								this.scene.add(voxel.mesh);
-								this.voxels.push(voxel.mesh);
-								this.saveVoxels();
-								foundVoxel = true;
-								break; // Exit mesh loop once voxel is found
-							}
-						}
-
-						// Only add voxel to hash if found
-						if (foundVoxel) {
-							voxelHash.add(hashKey);
-						}
-					}
+		// Create chunking tasks
+		const tasks = [];
+		for (
+			let i = boundingBox.min.x;
+			i < boundingBox.max.x;
+			i += params.gridSize
+		) {
+			for (
+				let j = boundingBox.min.y;
+				j < boundingBox.max.y;
+				j += params.gridSize
+			) {
+				for (
+					let k = boundingBox.min.z;
+					k < boundingBox.max.z;
+					k += params.gridSize
+				) {
+					tasks.push(
+						this.processChunk(i, j, k, importedMeshes, modelVoxels)
+					);
 				}
+			}
+		}
+
+		// Wait for all chunks to be processed
+		await Promise.all(tasks);
+
+		// Process and place the voxels
+		let hash = {};
+		modelVoxels.forEach((voxel) => {
+			let position = voxel.position;
+			let color = voxel.color;
+
+			position.x = Math.round(position.x);
+			position.y = Math.round(position.y) + 10;
+			position.z = Math.round(position.z);
+
+			let key = `${position.x},${position.y},${position.z}`;
+			if (hash[key]) return;
+
+			let newVoxel = new Voxel(position, {
+				color: color.getHex(),
+				roughness: 0.5,
+				metalness: 0.5,
+				opacity: 1,
+				transparent: false,
+				material: 'Standard',
+			});
+
+			gsap.from(newVoxel.mesh.scale, {
+				duration: 1,
+				x: 0,
+				y: 0,
+				z: 0,
+				ease: 'bounce',
+			});
+
+			hash[key] = true;
+			this.scene.add(newVoxel.mesh);
+			this.voxels.push(newVoxel.mesh);
+		});
+
+		this.saveVoxels();
+		const endTime = performance.now();
+		console.log(
+			'Waktu eksekusi Voxelize Model: ' + (endTime - startTime) + ' ms'
+		);
+	}
+
+	// Process a single chunk asynchronously
+	async processChunk(i, j, k, importedMeshes, modelVoxels) {
+		console.log('Processing chunk', i, j, k);
+		for (let meshCnt = 0; meshCnt < importedMeshes.length; meshCnt++) {
+			const mesh = importedMeshes[meshCnt];
+			const color = new THREE.Color();
+			const { h, s, l } = mesh.material.color.getHSL(color);
+			color.setHSL(h, s * 0.8, l * 0.8 + 0.2);
+
+			const pos = new THREE.Vector3(i, j, k);
+
+			if (this.isInsideMesh(pos, new THREE.Vector3(0, 0, 1), mesh)) {
+				modelVoxels.push({ color: color, position: pos });
+				break; // Stop once we find the first mesh that intersects
 			}
 		}
 	}
 
 	isInsideMesh(pos, ray, mesh) {
-		this.rayCaster.set(pos, ray);
-		this.rayCasterIntersects = this.rayCaster.intersectObject(mesh, false);
-		return this.rayCasterIntersects.length % 2 === 1;
+		let rayCaster = new THREE.Raycaster();
+		rayCaster.set(pos, ray);
+
+		let rayCasterIntersects = rayCaster.intersectObject(mesh, false);
+		return rayCasterIntersects.length % 2 === 1;
 	}
 
 	// export image
