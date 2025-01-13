@@ -5,7 +5,7 @@ export default class VoxelGuiControl {
 		this.voxelEditor = voxelEditor;
 
 		this.params = {
-			color: '#00ff00', // Default voxel color (green)
+			color: '#fafaf4', // Default voxel color (green)
 			roughness: 0.5,
 			metalness: 0.5,
 			opacity: 1,

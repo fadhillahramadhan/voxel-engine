@@ -59,7 +59,7 @@ export default class LightGuiControl {
 		);
 
 		// Allow the Lighting folder to be collapsible/minimizable
-		lightFolder.open(); // Opens by default, but can be minimized
+		// lightFolder.open(); // Opens by default, but can be minimized
 	}
 
 	update() {

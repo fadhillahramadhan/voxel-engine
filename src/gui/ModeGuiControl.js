@@ -36,6 +36,6 @@ export default class ModeGuiControl {
 	}
 
 	update() {
-		this.voxelEditor.listenModeGuiControl();
+		this.voxelEditor.updateMode();
 	}
 }

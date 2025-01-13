@@ -117,7 +117,12 @@ export default class VoxelEditor {
 		this.gridHelper.position.y -= 0.5;
 		this.gridHelper.position.x -= 0.5;
 		this.gridHelper.position.z -= 0.5;
-		this.scene.add(this.gridHelper);
+
+		const action = localStorage.getItem('c');
+
+		if (action !== 'v') {
+			this.scene.add(this.gridHelper);
+		}
 	}
 
 	addGroundPlane() {
