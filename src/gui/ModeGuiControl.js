@@ -5,7 +5,7 @@ export default class ModeGuiControl {
 		this.params = {
 			mode: 'default', //default. face, box
 			grid: true,
-			sceneColor: '#ffffff',
+			sceneColor: '#fafaf4',
 		};
 
 		const modeFolder = gui.addFolder('Mode');
@@ -36,6 +36,6 @@ export default class ModeGuiControl {
 	}
 
 	update() {
-		this.voxelEditor.updateMode();
+		this.voxelEditor.listenModeGuiControl();
 	}
 }
