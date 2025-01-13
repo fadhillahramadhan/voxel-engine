@@ -77,6 +77,7 @@ export default class VoxelEditor {
 
 		this.load = false;
 		this.loadVoxels();
+
 		this.animate();
 	}
 

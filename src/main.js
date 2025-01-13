@@ -141,18 +141,18 @@ const initialize = () => {
 	toggleElementVisibility('#save-market', action === 'c');
 
 	// hide all class .buttonaction if theres v action
-	if (action === 'v') {
-		document.querySelectorAll('.button-action').forEach((el) => {
-			el.style.display = 'none';
-		});
-		// hide control hint
-		// control-hint
-		document.querySelector('.control-hint').style.display = 'none';
-		// dg ac
-		document.querySelector('.dg.ac').style.display = 'none';
-		// navbar
-		document.querySelector('.navbar').style.display = 'none';
-	}
+	// if (action === 'v') {
+	// 	document.querySelectorAll('.button-action').forEach((el) => {
+	// 		el.style.display = 'none';
+	// 	});
+	// 	// hide control hint
+	// 	// control-hint
+	// 	document.querySelector('.control-hint').style.display = 'none';
+	// 	// dg ac
+	// 	document.querySelector('.dg.ac').style.display = 'none';
+	// 	// navbar
+	// 	document.querySelector('.navbar').style.display = 'none';
+	// }
 };
 
 const toggleControlHint = () => {
